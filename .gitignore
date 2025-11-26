@@ -1,0 +1,26 @@
+# Compiled files
+target/
+
+# Lock file (if you want to ignore it for libraries)
+# Cargo.lock
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.local
+
+# Backup files
+*~
+*.bak

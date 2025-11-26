@@ -1,14 +1,22 @@
+/*
+ *  In Rust, variables are immutable by default. This means that once a value is bound 
+ * to a variable, it cannot be changed. 
+ * To make a variable mutable, you need to use the `mut` keyword when declaring it.
+*/
 fn main() {
-    // Rust will infer the type of the variable based on the value assigned to it
-    let apples = 50; // i32 is the default type for integer literals
-    // i = integer, 32 = 32 bits
-    // 32 refers to the amount of memory allocated for the variable (32 bits)
+  let gym_reps = 10; // Immutable variable
+  println!("I plan to do {gym_reps} reps at the gym today.");
 
-    let oranges = 14 + 6; // Rust infers that oranges is also of type i32
+  // gym_reps = 15; // This line will cause a compile-time error because `gym_reps` is immutable
 
-    // We can tell Rust that our variable is intentionally unused by prefixing its name with an underscore
-    let _fruits = apples + oranges; // fruits is also inferred to be i32
+  // To make the variable mutable, use the `mut` keyword
+  let mut mutable_gym_reps = 10;
+  println!("I plan to do {mutable_gym_reps} reps at the gym today.");
+  
+  // Even though `mutable_gym_reps` is mutable, it must be assigned a value of the same type
+  // It cannot change from an integer to a floating-point number
+  // mutable_gym_reps = 15.3; // This line will cause a compile-time error
 
-    // We can interpolate variables into strings using {}
-    println!("This year, my garden has {apples} apples and {oranges} oranges.");
+  mutable_gym_reps = 15; // This is valid
+  println!("I have updated my plan to do {mutable_gym_reps} reps at the gym today.");
 }

@@ -6,7 +6,8 @@ fn main() {
 
     let oranges = 14 + 6; // Rust infers that oranges is also of type i32
 
-    let fruits = apples + oranges; // fruits is also inferred to be i32
+    // We can tell Rust that our variable is intentionally unused by prefixing its name with an underscore
+    let _fruits = apples + oranges; // fruits is also inferred to be i32
 
     // We can interpolate variables into strings using {}
     println!("This year, my garden has {apples} apples and {oranges} oranges.");

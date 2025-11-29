@@ -58,3 +58,53 @@ Let's look at `i32` as an example of a signed integer type:
 | ----- | -------------------- |
 | `f32` | Approx. 6-7 digits   |
 | `f64` | Approx. 15-16 digits |
+
+## Compound Types
+
+- A **compound type** can group multiple values into one type.
+- Rust has two primary compound types:
+  - **Tuples**: A fixed-size collection of values of different types (e.g., `(i32, f64, char)`).
+  - **Arrays**: A fixed-size collection of values of the same type (e.g., `[i32; 5]`).
+
+## Traits - Intro
+
+- A contract is a document that people sign to agree to do something.
+- Imaginve a non-specific contract with the following clause:
+
+  - "You promise to arrive at 9 AM at a specified location."
+    - A college student can promise to arrive at 9 AM for class.
+    - A software engineer can promise to arrive at 9 AM for a meeting.
+    - A flight can promise to arrive at 9 AM at the airport.
+    - A package can promise to arrive at 9 AM at your home.
+    - The situations are different but they honor the same contract.
+
+- In Rust, a **trait** is a contract that requires that a type must implement certain behavior/methods.
+- Traits establish consistency between types; methods that represent the same behavior have the same name across different types.
+- When a type opts in to honoring a trait's requirements, we say that the type "implements" the trait.
+- Types can vary in how they implement the behavior required by a trait, but they must provide the same methods with the same names.
+- Traits are similar to interfaces in other programming languages.
+- Traits enable polymorphism, allowing functions to operate on different types that implement the same trait.
+
+### Traits - II
+
+- A type can choose to implement a trait or multiple traits.
+- A type can implement multiple traits, allowing it to exhibit various behaviors.
+- Traits can be defined by the Rust standard library or by users.
+- There are hundreds of traits in the Rust standard library, covering a wide range of functionalities.
+- A trait is called an interface or protocol in other programming languages.
+- Traits can also define default method implementations, which types can override if needed.
+
+### The `Display` Trait I
+
+- The `Display` requires that a type can be represented as a user-friendly, readable string.
+- The `Display` trait mandates a format method that returns a string representation of the type.
+- When we use the `{}` placeholder syntax in a `println!` macro, Rust looks for the `Display` trait implementation for the type being printed.
+- If the type implements the `Display` trait, Rust calls the format method defined by the trait to obtain the string representation of the value.
+- If the type does not implement the `Display` trait, Rust will produce a compile-time error, indicating that the type cannot be formatted using `{}`.
+- Integers, floats, and booleans all implement the `Display` trait by default, allowing them to be printed using the `{}` syntax.
+- Custom types can implement the `Display` trait by defining how they should be formatted as strings.
+
+### The `Display` Trait II
+
+- It is not always clear how a complex type should be represented as a string.
+- Not all types implement the `Display` trait by default. One example is the array type.

@@ -13,20 +13,14 @@ fn main() {
     println!("Text contains 'a': {}, contains 'z': {}", has_a, has_z);
 }
 
-fn apply_to_jobs (number: i32, title: &str) {
+fn apply_to_jobs(number: i32, title: &str) {
     println!("I'm applying to {} {} jobs", number, title);
 }
 
 fn is_even(number: i32) -> bool {
-  if number % 2 == 0 {
-    true
-  } else {
-    false
-  }
+    number % 2 == 0
 }
 
 fn alphabet(text: &str) -> (bool, bool) {
-  let has_letter_a = text.contains('a');
-  let has_letter_z = text.contains('z');
-  (has_letter_a, has_letter_z)
+    (text.contains('a'), text.contains('z'))
 }

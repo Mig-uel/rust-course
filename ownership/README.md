@@ -46,3 +46,53 @@
   - A parameter can be the owner of a value.
 - Ownership also extends to composite data types (like structs, enums, arrays, tuples, etc.) that own their elements.
   - A tuple and array own their values.
+
+## The Stack and the Heap
+
+- The **stack** and the **heap** are two different areas of memory used for different purposes.
+- The **stack** and the **heap** read and write data in different ways that offer advantages and disadvantages.
+- The **stack** is generally fast but it only supports data with a known, fixed size at compile time.
+- The **heap** is generally slower but it supports dynamic data whose size may not be known at compile time or may change over time.
+
+### The Stack
+
+- A **stack** stores values in the sequential order it receives them.
+- A stack is last-in, first-out (LIFO). The last value pushed onto the stack is the first value popped off.
+- The technical terminology for adding data to the stack is **pushing onto the stack** and for removing data from the stack is **popping off the stack**.
+
+### The Stack II
+
+- All stack data has a fixed, consistent size that is known at compile time.
+- Data types like integers, floating-point numbers, booleans, characters, and tuples/arrays with fixed-size elements are stored on the stack.
+- The pieces of data on the stack will not grow (change size) or shrink (change size) while the program is running.
+- The stack is very fast because it only requires moving the stack pointer up or down to allocate or deallocate memory.
+- The stack has limited size, which can lead to stack overflow errors if too much data is pushed onto the stack.
+
+### The Heap
+
+- The **heap** is a larger region of memory. Think of it like a warehouse.
+- The heap is for data whose size is not known at compile time (user input, a file's contents, etc.) or data that needs to grow or shrink while the program is running.
+- When the Rust program needs dynamic space, it requests it from the heap. A program called the **memory allocator** finds a big enough chunk of memory on the heap and returns a reference to that chunk.
+- This reference is a pointer to the location of that chunk of memory.
+- The pointer is stored on the stack, but the actual data is stored on the heap.
+- Allocating and deallocating memory on the heap is generally slower than on the stack because it involves more complex operations like searching for a suitable memory block and managing fragmentation.
+
+### References
+
+- The memory allocators returns a reference (a pointer), which is an address in memory where the data is stored on the heap.
+- The reference points to the memory address of the data on the heap.
+- Think of a parking lot giving you a reference (spot "A23") to where your car is parked.
+- We can store a reference in a variable in a Rust program. References have a fixed size, so Rust can store them on the stack.
+
+### The Heap II
+
+- Allocating on the heap is slower than pushing to the stack. The memory allocator has to spend time searching for an open spot large enough to fit the data.
+- Accessing data is faster on the stack than the heap as well. With a heap, the program has to follow the reference (pointer) to find the data.
+- A stack stores the data in sequential order, while a heap stores data in a more scattered manner.
+- The heap can become fragmented over time as data is allocated and deallocated, leading to inefficient use of memory.
+- The heap has a much larger size limit compared to the stack, making it suitable for storing large amounts of data.
+
+### Ownership
+
+- The purpose of ownership is to assign responsibility for deallocating memory (primarily heap memory) to a specific variable or data structure.
+- Ownership is a compiler feature for reducing duplicate heap data and cleaning up heap data that is no longer needed.
